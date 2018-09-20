@@ -27,6 +27,21 @@ Instalar senhaunica no seu *Gemfile*:
     gem 'senhaunica'
     gem 'oauth'
 
+Exemplo para Controller:
+
+    class WelcomeController < ApplicationController
+
+      def login
+        s = Senhaunica.new('username','secret','168')
+        redirect_to s.login()
+      end
+
+      def callback
+        s = Senhaunica.new('username','secret','168')
+        @data = s.callback(params[:oauth_verifier])
+      end
+    end
+
 ## Informações para devs:
 
 Build do gem package:
@@ -35,4 +50,4 @@ Build do gem package:
 
 Enviar para rubygems:
 
-    gem push senhaunica-1.0.0.gem
+    gem push senhaunica-VERSION.gem

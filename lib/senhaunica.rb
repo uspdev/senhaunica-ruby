@@ -4,6 +4,7 @@ class Senhaunica
     @key = key
     @secret = secret
     @id = id
+  end
 
   def login
 
